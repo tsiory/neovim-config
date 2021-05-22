@@ -2,6 +2,11 @@
 
 You can find in that repo all of my Neovim configs.
 
+## Screenshot of how it looks
+
+![alt text][logo]
+[logo]: <https://github.com/tsiory/neovim-config/images/neovim_rice.png> "How it looks !"
+
 ## How to install ?
 
 1- Just put the nvim folder into your `~/.config` folder \
