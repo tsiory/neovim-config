@@ -5,7 +5,7 @@ You can find in that repo all of my Neovim configs.
 ## Screenshot of how it looks
 
 ![alt text][logo]
-[logo]: <https://github.com/tsiory/neovim-config/images/neovim_rice.png> "How it looks !"
+[logo]: <https://github.com/tsiory/neovim-config/blob/main/images/neovim_rice.png> "How it looks !"
 
 ## How to install ?
 
