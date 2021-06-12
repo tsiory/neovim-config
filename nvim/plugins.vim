@@ -8,8 +8,35 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.nvim/plugged')
 
+" Material Palenight
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+
+" Tokyo night colorscheme
+Plug 'folke/tokyonight.nvim'
+
+let g:tokyonight_style = "storm"
+let g:tokyonight_italic_functions = 1
+
+" FZF Search plugin
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+nnoremap <C-p> :GFiles<CR>
+
 " Status line
 Plug 'itchyny/lightline.vim'
+
+" Lightline colorscheme
+let g:lightline = {
+      \ 'colorscheme': 'material',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 
 " Onedark colorscheme
 Plug 'joshdick/onedark.vim'
@@ -48,13 +75,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" lean & mean status/tabline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-
-" let g:airline#extensions#tabline#enabled = 1
-
 " emmet (like), essential toolkit for abbreviation expansion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'mattn/emmet-vim'
@@ -72,6 +92,10 @@ let g:user_emmet_settings = {
 " awesome completion tool
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gr <Plug>(coc-references)
+nmap ,f :CocCommand prettier.formatFile :w<CR>
 
 " use <Tab> key to trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
@@ -93,48 +117,27 @@ Plug 'vim-scripts/auto-pairs-gentle'
 " `gc` in visual mode to comment out the selection, and much more...
 Plug 'tpope/vim-commentary'
 
-" search tool
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'mileszs/ack.vim'
-
-" my favourite colorscheme, bubblegum
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'baskerville/bubblegum'
-
 " enable repeating supported plugin maps with `.`
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'tpope/vim-repeat'
-
-" use CTRL-A/CTRL-X to increment dates, times, and more
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'tpope/vim-speeddating'
 
 " vim-plug end, add plugins to &runtimepath
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#end()
 
 " Additional config for colorscheme
-let g:onedark_hide_endofbuffer=1
-let g:onedark_termcolors=256
-let g:onedark_terminal_italics=1
+" let g:onedark_hide_endofbuffer=1
+" let g:onedark_termcolors=256
+" let g:onedark_terminal_italics=1
 
-" Lightline colorscheme
-let g:lightline = {
-      \ 'colorscheme': 'onedark',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
+" Needed for material theme
+if (has('termguicolors'))
+  set termguicolors
+endif
 
+" Material theme
+let g:material_terminal_italics = 1
+let g:material_theme_style = 'darker'
+colorscheme material
 
-" activate bubblegum colorscheme
-" colorscheme bubblegum-256-dark
-" let g:airline_theme='bubblegum'
-"
-" Gruvbox
-colorscheme onedark
-" let g:airline_theme='onedark'
+let g:airline_theme='material'

@@ -1,4 +1,5 @@
 {
 	"tsserver.enableJavascript": false,
-	"typescript.suggestionActions.enableJavascript": false
+	"typescript.suggestionActions.enableJavascript": false,
+	"coc.preferences.formatOnTypeFiletypes": ["css", "markdown", "javascript", "javascriptreact", "typescript", "typescriptreact"]
 }

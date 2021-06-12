@@ -11,8 +11,8 @@ set shortmess+=F  " to get rid of the file name displayed in the command line ba
 
 " only vim can do this
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set cursorline
-set cursorcolumn
+set cursorline
+" set cursorcolumn
 
 " open terminal
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -30,7 +30,7 @@ map ,s :split <C-R>=expand("%:p:h") . "/" <CR>
 
 " it is ok to wrap lines, just use gj or gk to move
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set wrap
+" set wrap
 
 " console.log hot key: type cll
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
